@@ -6,6 +6,6 @@ data = readRlrMonthly(rlr_directory);
 PSMSL_LOADER;
 gsim_metadata = pwd + "\GSIM_metadata\GSIM_catalog\GSIM_metadata.csv";
 disp(gsim_metadata)
-gsim_indices = pwd + "\GSIM_indices\TIMESERIES\monthly\"
+gsim_indices = pwd + "\GSIM_indices\TIMESERIES\monthly\";
 disp(gsim_indices)
 GSIM_LOADER
