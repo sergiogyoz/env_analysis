@@ -1,8 +1,0 @@
-addpath m_map;
-
-
-[X,Y]=m_ll2xy(LONG,LAT, ...optional clipping arguments )
-
-m_proj('lambert','lat',[20 33],'lon',[-100 -79]);
-m_coast('patch',[.9 .9 .9],'edgecolor','none');
-m_grid('tickdir','out','yaxislocation','right', 'xaxislocation','top','xlabeldir','end','ticklen',.02);

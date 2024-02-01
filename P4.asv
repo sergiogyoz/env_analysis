@@ -1,6 +1,0 @@
-load('GSIM_Matrix_Global.mat')
-name2find = "MISSISSIPPI RIVER";
-ind = strcmp(NRD, 'MISSISSIPPI RIVER');
-
-ARD = ARD(ind);
-LRD = LRD(ind, :);
