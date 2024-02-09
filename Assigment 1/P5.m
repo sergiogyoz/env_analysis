@@ -1,6 +1,6 @@
 addpath m_map;
-load("PSMSL_GoM.mat")
-load("GSIM_GoM.mat")
+load(pwd + "\Assigment 1\PSMSL_GoM.mat")
+load(pwd + "\Assigment 1\GSIM_GoM.mat")
 
 
 m_proj('lambert','lat',[20 50],'lon',[-100 -74]);

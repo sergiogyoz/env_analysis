@@ -1,7 +1,7 @@
 % LOAD PSMSL DATA AND SELECT CERTAIN TIDE GAUGE(S)
 
 %% (1) LOAD .MAT FILE FROM FOLDER
-load('PSMSL_Full.mat')
+load(pwd + "\file_reading\PSMSL_Full.mat")
 
 si = size(data);
 t = [1900:1/12:2022-1/12]'; % Note: start year depends on availability and region

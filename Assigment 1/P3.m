@@ -12,4 +12,4 @@ L = L(in,:);
 t = t;
 
 clearvars -except M N MID L Flag t
-save('PSMSL_GoM.mat')
+save(pwd + "\Assigment 1\PSMSL_GoM.mat")

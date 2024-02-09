@@ -10,4 +10,4 @@ NRD = NRD(ind);
 tRD = tRD;
 
 clearvars -except ARD LRD MRD MRDID NRD tRD
-save("GSIM_GoM.mat")
+save(pwd + "\Assigment 1\GSIM_GoM.mat")
