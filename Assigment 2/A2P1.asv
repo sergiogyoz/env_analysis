@@ -1,8 +1,8 @@
 %%
 load('GSIM_Matrix_Global.mat')
 name2find = "MISSISSIPPI RIVER";
-mississippi_catchment = strcmp(NRD, 'MISSISSIPPI RIVER');
-ind = and((LRD(:,1)>85),mississippi_catchment);
+mississippi_ind = strcmp(NRD, 'MISSISSIPPI RIVER');
+actual_mississppi = LRD(:,1)>85
 %%
 ARD = ARD(ind);
 LRD = LRD(ind, :);
@@ -12,4 +12,4 @@ NRD = NRD(ind);
 tRD = tRD;
 %%
 clearvars -except ARD LRD MRD MRDID NRD tRD
-save(pwd + "\Assigment 2\GSIM_MISSISSIPPI_RIVER.mat")
+save(pwd + "\Assigment 1\GSIM_GoM.mat")
