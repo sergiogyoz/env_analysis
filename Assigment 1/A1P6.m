@@ -17,7 +17,7 @@ ylabel("Discharge (m3/s)")
 figure()
 id = find(N=="GRAND ISLE");
 t2 = t;
-stage = M(:,32);
+stage = M(:,id);
 plot(t, stage)
 grid on
 xlabel("Time")
