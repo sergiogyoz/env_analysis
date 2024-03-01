@@ -76,11 +76,7 @@ title("Vicksburg detrended/deseasonalized");
 xlabel("time");
 ylabel("discharge (m^3 /s)");
 
-figure();
-plot(t, sta_final);
-title("GRAND ISLE detrended/deseasonalized");
-xlabel("time");
-ylabel("stage (m)");
+
 
 clearvars -except t sta_final dis_final
 
