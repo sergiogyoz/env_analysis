@@ -1,4 +1,4 @@
-load(pwd + "\Assigment 1\PSMSL_GoM.mat")
+load(pwd + "\Assigment 2\PSMSL_GoM.mat")
 id = find(N=="GRAND ISLE");
 stage = M(:,id);
 

@@ -54,9 +54,9 @@ title("Vicksburg seasonal cycle");
 xlabel("Month");
 ylabel("discharge (m^3 /s)");
 [M, I] = min(dis_m_avg);
-disp("min stage: " + num2str(M) + " at: " + num2str(I));
+disp("min discharge: " + num2str(M) + " at: " + num2str(I));
 [M, I] = max(dis_m_avg);
-disp("max stage: " + num2str(M) + " at: " + num2str(I));
+disp("max discharge: " + num2str(M) + " at: " + num2str(I));
 
 %------ Remove the mean seasonal cycle from the two
 % find the seasonal signal

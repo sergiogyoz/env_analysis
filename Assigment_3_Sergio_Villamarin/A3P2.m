@@ -43,12 +43,10 @@ function crr = corr_plot(data1, data2, window, plot_title, lab)
     xlabel(lab(1))
     ylabel(lab(2))
 
-    disp("")
+    disp("------")
     disp(num2str(window) +" month smooth")
     disp("correlation " + num2str(window) + "-month: " + num2str(crr(2)))
     disp("CI bounds [" + num2str(RL(2)) + " , " + num2str(RU(2)) + "]")
     disp("p-value: " + num2str(P(2)))
 end
-
-
 
