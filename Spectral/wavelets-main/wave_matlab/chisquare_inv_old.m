@@ -24,13 +24,18 @@ function X = chisquare_inv(P,V);
 	X = 1;
 	TOLERANCE = 1E-4;    % this should be accurate enough
     vers = version;
-    vers = str2num(vers(1)); % I edited the code to capture first 2 digits of matlab version
+    vers = str2num(vers(1));
 
 	while ((X+TOLERANCE) >= MAXX)  % should only need to loop thru once
 		MAXX = MAXX*10.;
 % this calculates value for X, NORMALIZED by V
+% Note: We need two different versions, depending upon the version of Matlab.
+        if (vers >= 6)
             X = fminbnd('chisquare_solve',MINN,MAXX,optimset('TolX',TOLERANCE),P,V);
-		    MINN = MAXX;
+        else
+    		X = fmin('chisquare_solve',MINN,MAXX,[0,TOLERANCE],P,V);
+        end
+		MINN = MAXX;
 	end
 	
 	X = X*V;  % put back in the goofy V factor

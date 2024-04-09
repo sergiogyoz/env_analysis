@@ -20,3 +20,14 @@ subplot(2,1,2)
 wt(d2)
 title(seriesname{2})
 set(gca,'xlim',tlim)
+
+% xwt
+figure('color',[1 1 1])
+xwt(d1,d2)
+title(['XWT: ' seriesname{1} '-' seriesname{2} ] )
+% wtc
+figure('color',[1 1 1])
+wtc(d1,d2)
+title(['WTC: ' seriesname{1} '-' seriesname{2} ] )
+
+
