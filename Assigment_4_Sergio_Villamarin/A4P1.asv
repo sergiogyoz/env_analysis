@@ -1,0 +1,7 @@
+% normalize data to 0 mean and 1 std
+Qv_norm = normalize(Qv);
+stage_norm = normalize(stage);
+% plot data and hist
+plot(t, Qv);
+figure();
+plot(t, stage_norm);
