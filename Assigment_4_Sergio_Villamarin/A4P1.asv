@@ -65,18 +65,18 @@ stage_res = normalize(stage_res);
 Qv_res = normalize(Qv_res);
 
 %% FFT of detrended data
-n_sample = length(t);
-stage_res_fft = fft(stage_res / n_sample);
-Qv_res_fft = fft(Qv_res / n_sample);
+stage_res_fft = fft(stage_res);
+Qv_res_fft = fft(Qv_res);
 highest_frequency = 12;
+n_sample = length(t);
 frequency = linspace(0,1,n_sample) * highest_frequency;
 
 figure;
-plot(frequency, abs(stage_res_fft / n_sample).^2)
+plot(frequency, abs(stage_res_fft))
 title("detrended stage power spectra")
 
 figure;
-plot(frequency, abs(Qv_res_fft / n_sample))
+plot(frequency, abs(Qv_res_fft))
 title("detrended discharge power spectra")
 
 %% Deseasonalizing the time series by removing month averages from each time series
@@ -109,7 +109,7 @@ plot(seasonal_Qv)
 figure;
 plot(seasonal_stage)
 
-%% Doing normality testing again (which now fail completely)
+%% Doing normality testing again (which now fail and barely fail)
 figure;
 histogram(stage_de, 15);
 [~, p_stage_de] = adtest(stage_de);
@@ -118,9 +118,10 @@ histogram(Qv_de, 15);
 [~, p_Qv_de] = adtest(Qv_de);
 
 %% FFT of detrended and deseasinalized data
-stage_de_fft = fft(stage_de / n_sample);
-Qv_de_fft = fft(Qv_de / n_sample);
+stage_de_fft = fft(stage_de);
+Qv_de_fft = fft(Qv_de);
 highest_frequency = 12;
+n_sample = length(t);
 frequency = linspace(0, 1, n_sample) * highest_frequency;
 
 figure;
@@ -132,12 +133,13 @@ plot(frequency, abs(Qv_de_fft))
 title("de-trended/seasonalized discharge power spectra")
 
 %% keeping only the variables I need
-close all
 stage_final =  stage_de;
 Qv_final = Qv_de;
 stage_fft = stage_de_fft;
 Qv_fft = Qv_de_fft;
 
 clearvars -except stage_final Qv_final stage_fft Qv_fft
+
+
 
 
