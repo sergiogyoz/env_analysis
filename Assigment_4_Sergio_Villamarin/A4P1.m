@@ -1,4 +1,5 @@
 %% normalize data to 0 mean and 1 std
+A4prep;
 Qv_log_norm = normalize(log(Qv));
 stage_norm = normalize(stage);
 
@@ -110,6 +111,8 @@ figure;
 plot(seasonal_stage)
 
 %% Doing normality testing again (which now fail completely)
+stage_de = normalize(stage_de);
+Qv_de = normalize(Qv_de);
 figure;
 histogram(stage_de, 15);
 [~, p_stage_de] = adtest(stage_de);
@@ -138,6 +141,6 @@ Qv_final = Qv_de;
 stage_fft = stage_de_fft;
 Qv_fft = Qv_de_fft;
 
-clearvars -except stage_final Qv_final stage_fft Qv_fft
+clearvars -except stage_final Qv_final stage_fft Qv_fft t
 
 
