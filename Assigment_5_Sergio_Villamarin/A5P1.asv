@@ -1,0 +1,55 @@
+%% prep
+A5prep;
+
+%% detrend and deseason
+Mcl = Mc - GMSL;
+Mcldt = detrend(Mcl, "omitmissing");
+for month = 1:12
+    month_mask = false(size(t));
+    month_mask(month:12:end) = true;
+    Mcldt(month_mask) = Mcldt(month_mask) + mean(Mcldt(month_mask), "omitmissing");
+end
+
+%% plot using the code from the provided script slightly modified
+figure;
+n = length(N);
+v_spacing = 300:300:(n*300);
+y_lim = [0 (n+1)*300];
+ha = tight_subplot(1,4,[.01 .01],[.1 .1],[.1 .1]);
+set(ha(1),'visible','off')
+axes(ha(2));
+col = colormap(turbo(n));
+
+for i = 1:n
+    plot(t,detrend(Mc(:,i),'constant','omitnan')+i*300,'Color',col(i,:));
+    hold on
+end
+
+xlabel('Year','Fontsize',10)
+title('Raw','Fontsize',10)
+set(ha(2),'XTick',1950:20:2010,'Xlim',[1945 2025],'YTick',v_spacing,...
+    'YTickLabel',N,'YLim',y_lim,'Layer','top','FontSize',8,'box','off')
+axes(ha(3));
+
+for i = 1:n
+    plot(t,detrend(Mcl(:,i),'constant','omitnan')+i*300,'Color',col(i,:));
+    hold on
+end
+xlabel('Year','Fontsize',10)
+title('GMSL corrected','Fontsize',10)
+set(ha(3),'XTick',1950:20:2010,'Xlim',[1945 2025],'YTick',v_spacing,...
+    'YTickLabel',[],'YLim',y_lim,'Layer','top','FontSize',8,'box','off',...
+    'Ycolor','none')
+axes(ha(4));
+
+for i = 1:n
+    plot(t,detrend(Mcldt(:,i),'constant','omitnan')+i*300,'Color',col(i,:));
+    hold on
+end
+xlabel('Year','Fontsize',10)
+title('GMSL corrected & deseasonalized','Fontsize',10)
+set(ha(4),'XTick',1950:20:2010,'Xlim',[1945 2025],'YTick',v_spacing,...
+    'YTickLabel',[],'YLim',y_lim,'Layer','top','FontSize',8,'box','off',...
+    'Ycolor','none')
+
+%% 

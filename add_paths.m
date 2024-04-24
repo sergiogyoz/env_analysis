@@ -9,3 +9,6 @@ addpath("Assigment_4_Sergio_Villamarin\");
 addpath("Spectral\wavelet-coherence-master\");
 addpath("Spectral\wavelets-main\wave_matlab\");
 addpath("Spectral\MyStuff\")
+% assigment 5
+addpath("Assigment_5_Sergio_Villamarin\");
+addpath("Assigment_5_Sergio_Villamarin\box_data\");
