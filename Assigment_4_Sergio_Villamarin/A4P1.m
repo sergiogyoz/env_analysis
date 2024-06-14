@@ -77,7 +77,7 @@ plot(frequency, abs(stage_res_fft / n_sample).^2)
 title("detrended stage power spectra")
 
 figure;
-plot(frequency, abs(Qv_res_fft / n_sample))
+plot(frequency, abs(Qv_res_fft / n_sample).^2)
 title("detrended discharge power spectra")
 
 %% Deseasonalizing the time series by removing month averages from each time series
@@ -127,11 +127,11 @@ highest_frequency = 12;
 frequency = linspace(0, 1, n_sample) * highest_frequency;
 
 figure;
-plot(frequency, abs(stage_de_fft))
+plot(frequency, abs(stage_de_fft).^2)
 title("de-trended/seasonalized stage power spectra")
 
 figure;
-plot(frequency, abs(Qv_de_fft))
+plot(frequency, abs(Qv_de_fft).^2)
 title("de-trended/seasonalized discharge power spectra")
 
 %% keeping only the variables I need
